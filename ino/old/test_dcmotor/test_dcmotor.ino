@@ -5,8 +5,8 @@
 #define PIN_MOTORB_1 9
 #define PIN_MOTORB_2 10
 
-#define TIME_ON 20000
-#define TIME_OFF 1000
+#define TIME_ON 5000
+#define TIME_OFF 500
 
 int speedMotor = 255;
 
@@ -34,6 +34,10 @@ void loop() {
     analogWrite(PIN_MOTORB_2,0);
     digitalWrite(PIN_LED,HIGH);
 
+    Serial.print("A1: 0 - A2: ");
+    Serial.print(speedMotor);
+    Serial.println(" - B1: 0 - B2:0");
+
     delay(TIME_ON);
     
     // Desliga Tudo
@@ -51,6 +55,9 @@ void loop() {
     analogWrite(PIN_MOTORB_1,0);
     analogWrite(PIN_MOTORB_2,speedMotor);
     digitalWrite(PIN_LED,HIGH);
+
+    Serial.print("A1: 0 - A2: 0 - B1: 0 - B2: ");
+    Serial.println(speedMotor);
 
     delay(TIME_ON);
     
